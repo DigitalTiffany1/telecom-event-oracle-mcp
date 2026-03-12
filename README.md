@@ -1,0 +1,1 @@
+# telecom-event-oracle-mcp
