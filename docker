@@ -1,0 +1,12 @@
+# Start with a clean, light version of Node.js
+FROM node:18-slim
+
+# Set the working directory inside the container
+WORKDIR /app
+
+# Install the xpay proxy so Glama can talk to your paywall
+RUN npm install -g @xpay/mcp-proxy
+
+# This tells the container to run the proxy and point it to your specific paywall
+# This ensures that even when Glama "hosts" it, you still get paid $0.25
+ENTRYPOINT ["npx", "-y", "@xpay/mcp-proxy", "https://paywall.xpay.sh/ep_1773326108873_bda3640b81c00051"]
